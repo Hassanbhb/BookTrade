@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Trade Club</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0">
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	<% if(user){ %>
+		<% include partials/userNav.ejs %>
+	<% }else{ %>
+		<% include partials/nav.ejs %>
+	<% } %>
+	
+	<div class="container">
+		<div class="row">
+			<% if(user){ %>
+
+				<h1>Your trades:</h1>
+				<div class="opirations text-center">
+					<% for(var j=0; j < text.trade.length; j++ ){%>
+						<div class="row">
+							<div class="col-sm-5">
+								
+								<img src="<%= text.trade[j].bookimgOne %>">
+								
+							</div>
+							<div class='col-sm-2 vertical-center'>
+								<p>Status</p>
+								<p><%= text.trade[j].status %></p>
+								<!-- display diffirent options to the sender and reciever -->
+								<% if(text.trade[j].ownerOne == user._id && text.trade[j].status != "Accepted"){ %>
+									
+									<button class="btn btn-info accept" data-tradeId="<%= text.trade[j].tradeId %>" data-userTwo="text.trade[j].ownerTwo">Accept</button>
+									<button class="btn btn-danger cancel" data-tradeId="<%= text.trade[j].tradeId %>">Cancel</button>
+									
+								<% }else{ %>
+									<button class="btn btn-danger cancel" data-tradeId="<%= text.trade[j].tradeId %>">Cancel</button>
+								<% } %>
+								
+							</div>
+							<div class='col-sm-5'>
+								
+								<img src="<%= text.trade[j].bookimgTwo %>">
+
+							</div>
+						</div>
+						
+					<% } %>
+				</div>
+
+			<% } %>
+			
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog modal-sm">
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Pick the book you want to give:</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p>Choose:</p>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+		</div>
+
+		<div class="row mybooks">
+			<h1>All books available:</h1>
+			<% for(var i=0; i < allbooks.length; i++){%>
+
+				<div class="col-sm-2">
+					<div class='panel panel-default'>
+						<div class='panel-body text-center'>
+	
+							<img data-id="<%= allbooks[i].owner %>" src="<%= allbooks[i].cover %>">
+							<% if(user){ %>
+								<% if(allbooks[i].owner != user._id){%>
+									<button type="button" class="btn btn-info btn-sm modalbtn trade" data-toggle="modal" data-target="#myModal">Trade</button>
+								<% } %>	
+							<% } %>
+							
+							
+												
+						</div>
+					</div>` 
+				</div>
+
+			<% } %>
+		</div>
+	</div>
+	
+	<footer class="container-fluid text-center navbar-fixed-bottom">
+		<p>Made By <a href="#" title='Visit Creator'>Hassan ben haj bouih</a></p>
+	</footer>
+	<script type="text/javascript" src="/common/ajax-functions.js"></script>
+	<script type="text/javascript" src="/controllers/tradeController.js"></script>
+</body>
+</html>

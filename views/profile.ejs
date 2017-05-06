@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Trade Club</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0">
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	<% include partials/userNav.ejs %>
+	
+	<div class="container">
+		<h1>Update your info: </h1>
+		<form class="profile-form">
+			<div class="form-group">
+				<label for="city">City:</label>
+				<input class="form-control" type="text" id="city" placeholder="City" required>
+			</div>
+			<div class="form-group">
+				<label for="state">State/Country:</label>
+				<input class="form-control" type="text" id="state" placeholder="State" required>
+			</div>
+			<button class="btn btn-default" type="submit" id="submit">Update</button>
+		</form>
+
+		<div class="col-sm-12">
+			<h4>Current info: </h4>
+			<ul class="list-group">
+				<li class="list-group-item">Name: <span class="list-group-item-text"><%= user.name %></span></li>
+				<li class="list-group-item">City: <span class="list-group-item-text"><%= user.city %></span></li>
+				<li class="list-group-item">State/country: <span class="list-group-item-text"><%= user.state %></span></li>
+			</ul>
+
+		</div>			
+	</div>
+	
+	<footer class="container-fluid text-center navbar-fixed-bottom">
+		<p>Made By <a href="#" title='Visit Creator'>Hassan ben haj bouih</a></p>
+	</footer>
+	<script type="text/javascript" src="/common/ajax-functions.js"></script>
+	<script type="text/javascript" src="/controllers/profileController.client.js"></script>
+</body>
+</html>

@@ -13,12 +13,19 @@ require('./app/config/passport')(passport);
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
+mongoose.connection.once('open', function(){
+	console.log('Connected to db');
+}).on("error", function(err){
+	console.log(err);
+})
+
+app.set('view engine', 'ejs');
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
 
 app.use(session({
-	secret: 'secretClementine',
+	secret: 'secretBookTrade',
 	resave: false,
 	saveUninitialized: true
 }));

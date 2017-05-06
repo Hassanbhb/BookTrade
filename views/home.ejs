@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Trade Club</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0">
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<% if(user){ %>
+		<% include partials/userNav.ejs %>
+	<% }else{ %>
+		<% include partials/nav.ejs %>
+	<% } %>
+	
+	<div class="jumbotron text-center">
+		<h2>BookTrade</h2>
+		<p>A community to trade knowledge with books</p>
+		<button class="btn btn-warning">Join Us</button>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 text-center">
+				<h3>Share your books</h3>
+				<p>
+					Display your books that you are willing to Trade, along with other users on our community. 
+				</p>
+			</div>	
+			<div class="col-sm-4 text-center">
+				<h3>Request a trade</h3>
+				<p>We provide a request method to let the book owner know you are interested to trade with him</p>
+			</div>
+			<div class="col-sm-4 text-center">
+				<h3>TRADE!</h3>
+				<p>Accept or refuse requests untile you feel happy with what u get.</p>
+			</div>			
+		</div>
+	</div>
+	<footer class="container-fluid text-center navbar-fixed-bottom">
+		<p>Made By <a href="#" title='Visit Creator'>Hassan ben haj bouih</a></p>
+	</footer>
+</body>
+</html>

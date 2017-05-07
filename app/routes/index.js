@@ -22,16 +22,16 @@ module.exports = function (app, passport) {
 
 	app.route('/allbooks')
 		.get(profileHandler.getallbooks)
-		.post(profileHandler.trade)
-		.delete(profileHandler.deleteTrade);
+		.post(isLoggedIn, profileHandler.trade)
+		.delete(isLoggedIn, profileHandler.deleteTrade);
 
 	app.route('/user/books')
-		.get(profileHandler.getuserbooks)
-		.post(profileHandler.acceptTrade);
+		.get(isLoggedIn, profileHandler.getuserbooks)
+		.post(isLoggedIn, profileHandler.acceptTrade);
 		
 	app.route('/mybooks')
 		.get(isLoggedIn, profileHandler.getbooks)
-		.delete(profileHandler.deleteUserBook);
+		.delete(isLoggedIn, profileHandler.deleteUserBook);
 		
 	
 	app.route('/mybooks/search')

@@ -5,9 +5,9 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hassanbhb/VoteUp"
+    "url": "git+https://github.com/Hassanbhb/BookTrade"
   },
-  "bugs": "https://github.com/Hassanbhb/VoteUp/issues",
+  "bugs": "https://github.com/Hassanbhb/BookTrade/issues",
   "keywords": [
     "MongoDB",
     "Mongoose",

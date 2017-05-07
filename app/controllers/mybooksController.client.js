@@ -102,7 +102,7 @@ panelGroup.addEventListener('click', function(e){
 	}
 })
 
-const url3 = "http://localhost:8080/mybooks"
+const url3 = "https://rocky-journey-81281.herokuapp.com/mybooks"
 ajaxFunctions.ajaxRequest('GET', url3, function(data){
 
 	if (data) {
@@ -120,7 +120,7 @@ for (var i = 0; i < deleteBook.length; i++) {
 		e.preventDefault();
 		const delBook = encodeURIComponent(e.target.parentElement.firstElementChild.children[0].currentSrc);
 		console.log(delBook);
-		const delURI = "http://localhost:8080/mybooks?delbook=" + delBook;
+		const delURI = "https://rocky-journey-81281.herokuapp.com/mybooks?delbook=" + delBook;
 		ajaxFunctions.ajaxRequest('DELETE', delURI, function(data){
 			if (data) {
 				location.reload();

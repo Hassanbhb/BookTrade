@@ -22,7 +22,7 @@ for (var i = 0; i < tradeBtn.length; i++) {
 		
 		//gat the current users books to give him a choice to choose which book
 		//he is ready to give
-		const url = "http://localhost:8080/user/books";
+		const url = "https://rocky-journey-81281.herokuapp.com/user/books";
 		ajaxFunctions.ajaxRequest('GET', url, function(data){
 			const arr = JSON.parse(data);
 			console.log(arr);
@@ -108,7 +108,7 @@ for (var i = 0; i < accept_btn.length; i++) {
 		
 		const tradeId = e.target.dataset.tradeid;
 		const userTwo = e.target.dataset.userTwo; 
-		const putURI = "http://localhost:8080/user/books?tradeid="+ tradeId +"&usertwo="+ userTwo;
+		const putURI = "https://rocky-journey-81281.herokuapp.com/user/books?tradeid="+ tradeId +"&usertwo="+ userTwo;
 
 		ajaxFunctions.ajaxRequest('POST', putURI, function(data){
 			if (data) {

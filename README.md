@@ -1,5 +1,6 @@
 # BookTrade
-a simple book trading club
+A simple book trading club
+Where users can trade digital books.
 
-this app is not working any more.
-I do not recommend using code from this repo, it's outdated, and full of bugs.
+This app is not maintained.
+
